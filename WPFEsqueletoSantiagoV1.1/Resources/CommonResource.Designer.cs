@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
-namespace WPFEsqueletoSantiagoV1._1.Resources
-{
+namespace WPFEsqueletoSantiagoV1._1.Resources {
+    using System;
+    
+    
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>
@@ -19,106 +19,88 @@ namespace WPFEsqueletoSantiagoV1._1.Resources
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CommonResource
-    {
-
+    internal class CommonResource {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonResource()
-        {
+        internal CommonResource() {
         }
-
+        
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WPFEsqueletoSantiagoV1._1.Resources.CommonResource", typeof(CommonResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a {0} ---&gt; Level: {1}.
         /// </summary>
-        internal static string ErrorLevel
-        {
-            get
-            {
+        internal static string ErrorLevel {
+            get {
                 return ResourceManager.GetString("ErrorLevel", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a {0} ---&gt; Message: {1}.
         /// </summary>
-        internal static string ErrorMessage
-        {
-            get
-            {
+        internal static string ErrorMessage {
+            get {
                 return ResourceManager.GetString("ErrorMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a {0} ---&gt; Source: {1}.
         /// </summary>
-        internal static string ErrorSource
-        {
-            get
-            {
+        internal static string ErrorSource {
+            get {
                 return ResourceManager.GetString("ErrorSource", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a {0} ---&gt; Stack Trace: {1}.
         /// </summary>
-        internal static string ErrorStackTrace
-        {
-            get
-            {
+        internal static string ErrorStackTrace {
+            get {
                 return ResourceManager.GetString("ErrorStackTrace", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a {0} ---&gt; Target Site: {1}.
         /// </summary>
-        internal static string ErrorTargetSite
-        {
-            get
-            {
+        internal static string ErrorTargetSite {
+            get {
                 return ResourceManager.GetString("ErrorTargetSite", resourceCulture);
             }
         }

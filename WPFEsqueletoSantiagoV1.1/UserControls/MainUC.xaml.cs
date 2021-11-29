@@ -42,11 +42,12 @@ namespace WPFEsqueletoSantiagoV1._1.UserControls
         {
             try
             {
-                Task.Run(() =>
+                Task.Run(async () =>
                 {
                     while (_validatePaypad)
                     {
-                        AdminPayPlus.ValidatePaypad();
+                        _validatePaypad = await AdminPayPlus.ValidatePaypad();
+                        if (_validatePaypad == true) _validatePaypad = false;
 
                         Thread.Sleep(int.Parse(Utilities.GetConfiguration("DurationAlert")));
                     }

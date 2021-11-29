@@ -21,7 +21,10 @@ namespace WPFEsqueletoSantiagoV1._1.Classes
                     TYPE = 1,
                 }, ELogType.Error);
             }
-            catch { }
+            catch {
+            
+            
+            }
         }
 
         /// <summary>

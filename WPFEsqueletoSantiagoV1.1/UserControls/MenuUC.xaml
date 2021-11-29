@@ -8,16 +8,17 @@
              Height="1920" 
              Width="1080" >
     <Grid>
-        <!--<Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/fondo.jpg" Stretch="Uniform"/>
-        </Grid.Background>-->
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Backgrounds/BackPrincipal.jpg" Stretch="Uniform"/>
+        </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
             <RowDefinition Height="*" />
             <RowDefinition Height="300" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="tbTimer"
+        
+<TextBlock x:Name="tbTimer"
                     FontSize="45"
                     Grid.Column="4"
                     Foreground="#fff"

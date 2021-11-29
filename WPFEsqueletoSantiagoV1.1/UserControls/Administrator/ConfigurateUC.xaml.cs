@@ -102,50 +102,50 @@ namespace WPFEsqueletoSantiagoV1._1.UserControls.Administrator
         {
             try
             {
-                Task.Run(() =>
+              
+                if (state)
                 {
-                    if (state)
+
+                    AdminPayPlus.SaveLog(new RequestLog
+                    {
+                        Reference = "",
+                        Description = MessageResource.YesGoInitial,
+                        State = 1,
+                        Date = DateTime.Now
+                    }, ELogType.General);
+
+                    Utilities.navigator.Navigate(UserControlView.Main);
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(AdminPayPlus.DataPayPlus.Message))
                     {
                         AdminPayPlus.SaveLog(new RequestLog
                         {
                             Reference = "",
-                            Description = MessageResource.YesGoInitial,
-                            State = 1,
+                            Description = $"{MessageResource.NoGoInitial}, {AdminPayPlus.DataPayPlus.Message}",
+                            State = 6,
                             Date = DateTime.Now
                         }, ELogType.General);
 
-                        Utilities.navigator.Navigate(UserControlView.Main);
+                        Utilities.ShowModal(MessageResource.NoService + " " + MessageResource.NoMoneyKiosco, EModalType.Error, false);
+                        Initial();
                     }
                     else
                     {
-                        if (!string.IsNullOrEmpty(AdminPayPlus.DataPayPlus.Message))
+                        AdminPayPlus.SaveLog(new RequestLog
                         {
-                            AdminPayPlus.SaveLog(new RequestLog
-                            {
-                                Reference = "",
-                                Description = $"{MessageResource.NoGoInitial}, {AdminPayPlus.DataPayPlus.Message}",
-                                State = 6,
-                                Date = DateTime.Now
-                            }, ELogType.General);
+                            Reference = "",
+                            Description = $"{MessageResource.NoGoInitial}, {init.DescriptionStatusPayPlus}",
+                            State = 2,
+                            Date = DateTime.Now
+                        }, ELogType.General);
 
-                            Utilities.ShowModal(MessageResource.NoService + " " + MessageResource.NoMoneyKiosco, EModalType.Error, false);
-                            Initial();
-                        }
-                        else
-                        {
-                            AdminPayPlus.SaveLog(new RequestLog
-                            {
-                                Reference = "",
-                                Description = $"{MessageResource.NoGoInitial}, {init.DescriptionStatusPayPlus}",
-                                State = 2,
-                                Date = DateTime.Now
-                            }, ELogType.General);
-
-                            Utilities.ShowModal(MessageResource.NoService + " " + init.DescriptionStatusPayPlus, EModalType.Error, false);
-                            Initial();
-                        }
+                        Utilities.ShowModal(MessageResource.NoService + " " + init.DescriptionStatusPayPlus, EModalType.Error, false);
+                        Initial();
                     }
-                });
+                }
+               
             }
             catch (Exception ex)
             {

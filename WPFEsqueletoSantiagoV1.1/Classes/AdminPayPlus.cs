@@ -126,7 +126,7 @@ namespace WPFEsqueletoSantiagoV1._1.Classes
 
                     DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
 
-                    //ValidatePeripherals();
+                    ValidatePeripherals();
 
                     callbackResult?.Invoke(true);
                 }
@@ -186,33 +186,41 @@ namespace WPFEsqueletoSantiagoV1._1.Classes
                 if (response != null)
                 {
                     _dataPayPlus = JsonConvert.DeserializeObject<DataPayPlus>(response.ToString());
-
+                    
                     //Utilities.ImagesSlider = JsonConvert.DeserializeObject<List<string>>(data.ListImages.ToString());
                     if (_dataPayPlus.StateBalanece || _dataPayPlus.StateUpload)
-                    {
-                        SaveLog(new RequestLog
-                        {
-                            Reference = response.ToString(),
-                            Description = MessageResource.PaypadGoAdmin,
-                            State = 4,
-                            Date = DateTime.Now
-                        }, ELogType.General);
+                    { 
+                        var rstask = Task.Run(() =>
+                            SaveLog(new RequestLog
+                            {
+                                Reference = response.ToString(),
+                                Description = MessageResource.PaypadGoAdmin,
+                                State = 4,
+                                Date = DateTime.Now
+                            }, ELogType.General));
+
+                        if (!rstask.IsCompleted) { rstask.Wait();}
+
                         return true;
                     }
                     if (_dataPayPlus.State && _dataPayPlus.StateAceptance && _dataPayPlus.StateDispenser)
                     {
                         return true;
+                       
                     }
                     else
                     {
+                        var rstask = Task.Run(() =>
                         SaveLog(new RequestLog
                         {
                             Reference = response.ToString(),
                             Description = MessageResource.NoGoInitial + _dataPayPlus.Message,
                             State = 6,
                             Date = DateTime.Now
-                        }, ELogType.General);
+                        }, ELogType.General));
 
+
+                        if (!rstask.IsCompleted) { rstask.Wait(); }
                         SaveErrorControl(MessageResource.NoGoInitial, _dataPayPlus.Message, EError.Aplication, ELevelError.Strong);
                     }
                 }
@@ -255,6 +263,7 @@ namespace WPFEsqueletoSantiagoV1._1.Classes
 
                     Finish(isSucces);
                 };
+
                 _controlPeripherals.Start();
 
             }
@@ -293,9 +302,12 @@ namespace WPFEsqueletoSantiagoV1._1.Classes
                 if (keys.Length > 0)
                 {
                     string[] server = keys[0].Split(';');
-                    string[] payplus = keys[1].Split(';');
+                    string[] payplus = keys[1].Split(';');  
 
-                    return new CONFIGURATION_PAYDAD
+                    //var key = Assembly.GetExecutingAssembly().EntryPoint.DeclaringType.Namespace;
+                    //var t = Encryptor.Decrypt(server[0].Split(':')[1]);
+
+                    return new CONFIGURATION_PAYDAD   
                     {
                         USER_API = Encryptor.Decrypt(server[0].Split(':')[1]),
                         PASSWORD_API = Encryptor.Decrypt(server[1].Split(':')[1]),
@@ -316,7 +328,7 @@ namespace WPFEsqueletoSantiagoV1._1.Classes
         {
             try
             {
-                Task.Run(async () =>
+                await Task.Run(async () =>
                 {
                     var saveResult = SqliteDataAccess.SaveLog(log, type);
                     object result = "false";

@@ -27,7 +27,7 @@ namespace WPFEsqueletoSantiagoV1._1.Classes
             {
                 var encryptedBytes = Convert.FromBase64String(encryptedText);
                 var decryptByte = GetRijndaelManaged(key).CreateDecryptor().TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
-                return Encoding.UTF8.GetString(decryptByte);
+                 return Encoding.UTF8.GetString(decryptByte);
             }
             catch (Exception ex)
             {

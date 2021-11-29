@@ -30,11 +30,11 @@ namespace WPFEsqueletoSantiagoV1._1.Windows
                     Utilities.navigator = new Navigation();
                 }
 
-                string a = Encryptor.Encrypt("usrapli", "WPFProyecto");
-                string b = Encryptor.Encrypt("1Cero12019$/*", "WPFProyecto");
-                string c = Encryptor.Encrypt("Ecity.Software", "WPFProyecto");
-                string d = Encryptor.Encrypt("Ecitysoftware2019#", "WPFProyecto");
-                string e = Encryptor.Encrypt("https://e-citypay.co/", "WPFProyecto");
+                string a = Encryptor.Encrypt("usrapli", "WPFEsqueletoSantiagoV1.1");
+                string b = Encryptor.Encrypt("1Cero12019$/*", "WPFEsqueletoSantiagoV1.1");
+                string c = Encryptor.Encrypt("Pay+ Michael", "WPFEsqueletoSantiagoV1.1");
+                string d = Encryptor.Encrypt("EcitySoftware2021%", "WPFEsqueletoSantiagoV1.1");
+                string e = Encryptor.Encrypt("https://e-ecity.online/", "WPFEsqueletoSantiagoV1.1");
 
                 WPKeyboard.Keyboard.ConsttrucKeyyboard(WPKeyboard.Keyboard.EStyle.style_2);
 

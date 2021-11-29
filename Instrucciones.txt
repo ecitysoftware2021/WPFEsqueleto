@@ -1,0 +1,45 @@
+pasos para verificar en una aplicación
+
+- colocar las keys (las de abajo que son para el pay+, el ejemplo está en Comfenalco)
+- verificar todos los casos de uso para un servicio (mirar que responde con cualquier dato mandado, se puede probar primero en postman)
+- está creando un payer (si la transacción tiene nombres del cliente)
+- Guardar las transacciones, para guardarlas se coloca en el formulario final antes de mandarlo al formulario de pay (el metodo está en DetailUC)
+- verificar que el producto que se está adquiriendo en la aplicación 
+exista en la base de datos y dependiendo de eso se coloca el número correspondiente
+(se encuentra en AdminPayPlus en el metodo SaveTransaction)
+- modificar la aplicación de tal manera que cuando se vaya el internet se mande al formulario de config
+- en la factura impresa, colocar el idTransactionAPi en la linea donde está comentada
+- verificar que se estén creando los logs en el dashboard real time (ver ejemplo de Comfenalco)
+- verificar que si se esté guardando y validando las transacciones en el dashboard
+- verificar que en el dashboard real time en los logs guarden todo lo que pase con los billeteros
+- si se van a usar los billeteros mirar que si estén funcionando y que estén registrando en el dashboard
+- al consumir un metodo que está en ApiIntegration, mostrar el mensaje de error en la modal de error si el servicio respondió mal.
+- verificar que todo el dinero devuelto si registre en el dashboard
+- al momento de sacar la aplicación a producción, eliminar todos los registros de la base de datos local (los logs)
+
+
+pasos para crear un payplus en el dashboard
+
+- asignar todos los datos relevantes del payplus al crearlo
+- crear y asignar los dispositivos que se van a usar en el payplus
+- crear un usuario para el payplus donde se asigne los permisos para corresponsales(el que tiene pay+ y sucursales)
+
+
+Lineas de código útiles
+
+- sirve para cuando necesite editar campos del XAML en código, únicamente se usa 
+cuando hay un task y se necesita editar campos del XAML (ejemplo en MenuUC de Comfenalco)
+
+	Dispatcher.BeginInvoke((Action)(() =>
+	{
+
+	}));
+
+- se usan para consumir los metodos de ApiIntegration
+	Task.Run(() =>
+	{
+		
+	});
+	
+- se usa cuando se necesita limitar el ingreso de caracteres en una aplicación
+	var regexItem = new Regex("^[a-zA-ZñÑ ]*$");

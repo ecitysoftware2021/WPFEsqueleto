@@ -1,0 +1,110 @@
+﻿<Window x:Class="WPFEsqueletoSantiagoV1._1.Windows.ModalW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFEsqueletoSantiagoV1._1.Windows"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        gif:ImageBehavior.AnimateInDesignMode="True"
+        mc:Ignorable="d"
+        Title="ModalWindow"  
+        WindowStyle="None"
+        Topmost="False"
+        WindowState="Maximized"
+        Height="2064.095" 
+        Width="1250.599"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="/Images/Backgrounds/fondo.jpg" Stretch="Uniform"/>
+        </Grid.Background>-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="360" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="400" />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" BorderThickness="10,10,10,10" BorderBrush="#FF68B549"  CornerRadius="30,30,30,30" Margin="50,0,50,200" Background="White">
+                <Grid>
+                    <TextBlock x:Name="LblTittle" 
+                           Text="{Binding Tittle}"
+                           HorizontalAlignment="Center"
+                           Margin="0,80,0,0" 
+                           FontSize="55" 
+                           FontFamily="Myriad Pro"
+                           FontWeight="Bold"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center" />
+
+                    <TextBlock x:Name="LblMessage" 
+                           Text="{Binding Messaje}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,200" 
+                           FontSize="48" 
+                           Width="700"
+                           FontFamily="Myriad Pro"
+                           TextWrapping="WrapWithOverflow"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center" />
+
+                    <TextBlock x:Name="LblMessageTouch" 
+                           Text="¡Toca la pantalla para continuar!"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,30" 
+                           FontSize="30" 
+                           Width="500"
+                           FontFamily="Myriad Pro"
+                           TextWrapping="WrapWithOverflow"
+                           VerticalAlignment="Bottom"
+                           TextAlignment="Center" />
+                    <Image gif:ImageBehavior.AnimatedSource="/Images/Gif/loading.gif" 
+                       gif:ImageBehavior.AnimateInDesignMode="True"
+                       gif:ImageBehavior.AutoStart="True" 
+                       x:Name="GifLoadder"  
+                       Stretch="Uniform"
+                       VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Center" 
+                       Height="300"
+                       Margin="0,0,0,20"
+                       Visibility="Hidden"/>
+
+                    <Image x:Name="BtnOk" 
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Height="100"
+                        Margin="0,0,0,50"
+                        TouchDown="BtnOk_TouchDown"
+                        Source="/Images/others/x.png" 
+                        Stretch="Uniform" />
+
+                    <Image x:Name="BtnNo" 
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Height="100"
+                        Margin="100,0,0,50"
+                        TouchDown="BtnNo_TouchDown"
+                        Source="/Images/others/x.png"
+                        Stretch="Uniform" />
+
+                    <Image x:Name="BtnYes" 
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Height="100"
+                        Margin="0,0,100,50"
+                        TouchDown="BtnYes_TouchDown"
+                        Source="/Images/others/x.png" 
+                        Stretch="Uniform" />
+                </Grid>
+                <Border.Effect>
+                    <DropShadowEffect
+                        ShadowDepth="20"
+                        Direction="225"
+                        Color="Gray"
+                        Opacity="0.6"
+                        BlurRadius="30.0"/>
+                </Border.Effect>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
